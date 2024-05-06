@@ -9,11 +9,12 @@
 def gcd(a, b):
     if b == 0:
         return a
+    if a ==b:
+        return a
     if a < b:
         return gcd(a, b % a)
     if b < a:
         return gcd(b, a % b)
-
 
 # 0.0.2 Problem 2: Directions
 
@@ -58,24 +59,24 @@ remove_pairs("ESNW")
 
 def bisection_root(equation, x1, x2):
     
-    if equation(x1)<0 and equation(x2)<0 or equation(x1)>0 and equation(x2)>0:
+    if equation(x1) * equation(x2) > 0:
         raise ValueError('Cannot find the root between these values')
-        
-    if abs(equation(x1))<.001:
+
+    if abs(equation(x1)) < 0.001:
         return x1
     
-    if abs(equation(x2))<.001:
+    if abs(equation(x2)) < 0.001:
         return x2
     
-    else: 
-        x = (x1 + x2) / 2
-        y = equation(x)
-        
-        if (x >= 0) != (x1 >= 0):
-            bisection_root(equation, x, x1)
-        if (x >= 0) != (x2 >= 0):
-            bisection_root(equation, x, x2)
-    return x
+    x = (x1 + x2) / 2
+    y = equation(x)
+
+    if equation(x1) * equation(x) < 0:
+        return bisection_root(equation, x1, x)
+    elif equation(x2) * equation(x) < 0:
+        return bisection_root(equation, x, x2)
+    else:
+        raise ValueError('Cannot find a root between these values')
 
 
 # In[54]:
