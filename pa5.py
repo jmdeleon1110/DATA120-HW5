@@ -71,9 +71,9 @@ def bisection_root(equation, x1, x2):
     x = (x1 + x2) / 2
     y = equation(x)
 
-    if equation(x1) * equation(x) < 0:
-        return bisection_root(equation, x1, x)
-    elif equation(x2) * equation(x) < 0:
+    if (y < 0 and equation(x1) > 0) or (y > 0 and equation(x1) < 0):
+        return bisection_root(equation, x, x1)
+    elif (y < 0 and equation(x2) > 0) or (y > 0 and equation(x2) < 0):
         return bisection_root(equation, x, x2)
     else:
         raise ValueError('Cannot find a root between these values')
