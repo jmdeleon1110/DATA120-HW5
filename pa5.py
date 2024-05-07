@@ -55,30 +55,21 @@ remove_pairs("ESNW")
 # 0.0.3 Problem 3: Bisection Method
 
 # In[56]:
-
-
 def bisection_root(equation, x1, x2):
-    
     if equation(x1) * equation(x2) > 0:
         raise ValueError('Cannot find the root between these values')
-
     if abs(equation(x1)) < 0.0000001:
         return x1
-    
     if abs(equation(x2)) < 0.0000001:
         return x2
-    
     x = (x1 + x2) / 2
     y = equation(x)
-
     if (y < 0 and equation(x1) > 0) or (y > 0 and equation(x1) < 0):
         return bisection_root(equation, x, x1)
     elif (y < 0 and equation(x2) > 0) or (y > 0 and equation(x2) < 0):
         return bisection_root(equation, x, x2)
     else:
         raise ValueError('Cannot find a root between these values')
-
-
 # In[54]:
 
 
