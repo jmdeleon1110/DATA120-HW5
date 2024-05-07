@@ -56,6 +56,7 @@ remove_pairs("ESNW")
 
 # In[56]:
 def bisection_root(equation, x1, x2):
+    
     if equation(x1) * equation(x2) > 0:
         raise ValueError('Cannot find the root between these values')
     if abs(equation(x1)) < 0.0000001:
