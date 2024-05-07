@@ -62,10 +62,10 @@ def bisection_root(equation, x1, x2):
     if equation(x1) * equation(x2) > 0:
         raise ValueError('Cannot find the root between these values')
 
-    if abs(equation(x1)) < 0.001:
+    if abs(equation(x1)) < 0.0000001:
         return x1
     
-    if abs(equation(x2)) < 0.001:
+    if abs(equation(x2)) < 0.0000001:
         return x2
     
     x = (x1 + x2) / 2
