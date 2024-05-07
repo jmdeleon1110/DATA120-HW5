@@ -72,7 +72,6 @@ def bisection_root(equation, x1, x2):
         raise ValueError('Cannot find a root between these values')
 # In[54]:
 
-
 import math
 
 
