@@ -13,7 +13,6 @@ def gcd(a, b):
     if b < a:
         return gcd(b, a % b)
 
-
 # 0.0.2 Problem 2: Directions
 
 def remove_pairs(directions):
@@ -27,8 +26,7 @@ def remove_pairs(directions):
         return remove_pairs(directions[2:])
     else:
         return directions[0] + remove_pairs(directions[1:])
-
-
+        
 # 0.0.3 Problem 3: Bisection Method
 
 import math
