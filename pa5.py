@@ -4,7 +4,6 @@
 # 0.0.1 Problem 1: GCD
 
 def gcd(a, b):
-    
     if b == 0:
         return a
     if a == b:
@@ -13,12 +12,11 @@ def gcd(a, b):
         return gcd(a, b % a)
     if b < a:
         return gcd(b, a % b)
-        
+
 
 # 0.0.2 Problem 2: Directions
 
 def remove_pairs(directions):
-    
     turnarounds = {'EW', 'WE', 'NS', 'SN'}
 
     if len(directions) <= 1:
@@ -29,14 +27,13 @@ def remove_pairs(directions):
         return remove_pairs(directions[2:])
     else:
         return directions[0] + remove_pairs(directions[1:])
-        
-        
+
+
 # 0.0.3 Problem 3: Bisection Method
 
 import math
 
 def bisection_root(equation, x1, x2):
-    
     if equation(x1) * equation(x2) > 0:
         raise ValueError('Cannot find the root between these values')
     if abs(equation(x1)) < 0.0000001:
